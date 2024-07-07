@@ -1,0 +1,5 @@
+# requirements.txt
+tensorflow==2.16.2
+keras==3.0.0
+matplotlib
+numpy
