@@ -20,7 +20,7 @@ def make_predictions(model, test_data):
     correct_num = 0
     invalid_num = 0
     all_num = len(test_data['x_test'])
-    for x_test, y_test in zip(test_data['x_test'], test_data['y_test']):
+    for x_test, y_test in zip(test_data['x_test'][-100:-1], test_data['y_test'][-100:-1]):
         x_test_reshaped = x_test.reshape(1, 28, 28)
         predictions = model.predict(x_test_reshaped)
         # predictionの中で最も確率の高いもののindexを取得
