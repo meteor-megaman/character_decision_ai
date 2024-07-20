@@ -15,7 +15,6 @@ def main():
     result = predict(model_type, image_base64)
     print(result)
 
-
 def transform_np_to_b64(image_path: str) -> str:
     with Image.open(image_path) as image:
         image_array = np.array(image)
