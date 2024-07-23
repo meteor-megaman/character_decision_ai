@@ -7,9 +7,11 @@ import numpy as np
 
 def main():
     model_type = 'mnist_model'
-    image_path = 'out/x_data/image_0.png'
+    image_path = 'out/test_image.png'
 
     image_base64 = transform_np_to_b64(image_path)
+
+    print(image_base64)
     
 
     result = predict(model_type, image_base64)
@@ -17,7 +19,7 @@ def main():
 
 def transform_np_to_b64(image_path: str) -> str:
     with Image.open(image_path) as image:
-        image_array = np.array(image)
+        image_array = np.array(image.convert('L').resize((28, 28)))
     image = Image.fromarray(image_array)
     buffered = BytesIO()
     image.save(buffered, format='PNG')
